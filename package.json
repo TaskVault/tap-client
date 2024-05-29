@@ -13,10 +13,18 @@
     "type": "git"
   },
   "scripts": {
+    "build": "nx run-many -t build",
+    "dev": "nx run-many --parallel --maxParallel=50 -t dev",
+    "clean": "nx run-many -t clean",
+    "lint:fix": "nx run-many -t lint:fix",
+    "prettify:fix": "nx run-many -t prettify:fix"
   },
   "packageManager": "pnpm@9.1.3",
   "engines": {
     "node": "20.11.0",
     "pnpm": "9.1.3"
+  },
+  "devDependencies": {
+    "nx": "^19.1.1"
   }
 }
