@@ -30,3 +30,10 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+apps/*/dist
+apps/*/build
+apps/*/.nx
+apps/*/node_modules
+.nx
+
