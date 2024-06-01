@@ -44,7 +44,9 @@ export const Balance = ({ children, amount = 0, textColor, icon }: BalanceProps)
 export const TonBalance = ({ amount }: Required<WithAmount>) => {
   return (
     <Balance amount={amount} icon={<Architecture />}>
-      <Typography color="textSecondary">Ton Balance</Typography>
+      <Typography color="textSecondary" gutterBottom={false}>
+        Ton Balance
+      </Typography>
     </Balance>
   )
 }
@@ -52,7 +54,9 @@ export const TonBalance = ({ amount }: Required<WithAmount>) => {
 export const TonInDeals = ({ amount }: Required<WithAmount>) => {
   return (
     <Balance amount={amount} textColor="primary" icon={<AcUnit />}>
-      <Typography color="textSecondary">Ton In Deals</Typography>
+      <Typography color="textSecondary" gutterBottom={false}>
+        Ton In Deals
+      </Typography>
     </Balance>
   )
 }

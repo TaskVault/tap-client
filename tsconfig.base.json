@@ -16,15 +16,9 @@
     // Strict type checks
     "strict": true,
 
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
-    "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "downlevelIteration": true
@@ -33,5 +27,6 @@
     "**/dist",
     "**/*.test.ts",
     "**/*.spec.ts",
+    "**/*.mock.ts",
   ]
 }

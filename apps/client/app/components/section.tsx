@@ -1,6 +1,5 @@
-// section.tsx
 import React from 'react'
-import { Box, Button, Typography, Container, styled } from '@mui/material'
+import { Box, Typography, Container, styled, Button } from '@mui/material'
 import { ChevronRight } from '@mui/icons-material'
 import { Link as RemixLink } from '@remix-run/react'
 
@@ -29,20 +28,11 @@ const SectionWrapper = styled(Container)(({ theme }) => ({
   marginTop: 10,
 }))
 
-// const SeeAllButton = styled(Button)({
-//   padding: 0,
-//   margin: 'auto 0',
-//   textTransform: 'none',
-//   display: 'flex',
-//   alignItems: 'center',
-//   textDecoration: 'none',
-// });
-//
 const SeeAllIcon = styled(ChevronRight)({
   marginBottom: 2,
 })
 
-export const Section = ({ label = 'no section name', children, href }: SectionProps) => {
+export const Section = ({ label = '', children, href }: SectionProps) => {
   const upperLabel = label.toUpperCase()
 
   return (
