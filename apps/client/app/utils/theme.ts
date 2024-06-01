@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from '@mui/material'
 
 export const theme = createTheme({
   palette: {
@@ -13,4 +13,4 @@ export const theme = createTheme({
     fontWeightMedium: 700,
     fontWeightBold: 900,
   },
-});
+})

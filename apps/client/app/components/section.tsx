@@ -1,23 +1,25 @@
 // section.tsx
-import React from 'react';
-import { Box, Button, Typography, Container, styled } from '@mui/material';
-import { ChevronRight } from '@mui/icons-material';
-import { Link as RemixLink } from '@remix-run/react';
+import React from 'react'
+import { Box, Button, Typography, Container, styled } from '@mui/material'
+import { ChevronRight } from '@mui/icons-material'
+import { Link as RemixLink } from '@remix-run/react'
 
 type WithLabel<T = {}> = T & {
-  label?: string;
-};
+  label?: string
+}
 
-type SectionProps = React.PropsWithChildren<WithLabel<{
-  href?: string;
-}>>;
+type SectionProps = React.PropsWithChildren<
+  WithLabel<{
+    href?: string
+  }>
+>
 
 const SectionTopBar = styled(Box)({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
   width: '100%',
-});
+})
 
 const SectionWrapper = styled(Container)(({ theme }) => ({
   background: theme.palette.background.default,
@@ -25,7 +27,7 @@ const SectionWrapper = styled(Container)(({ theme }) => ({
   padding: 10,
   borderRadius: 20,
   marginTop: 10,
-}));
+}))
 
 // const SeeAllButton = styled(Button)({
 //   padding: 0,
@@ -38,14 +40,10 @@ const SectionWrapper = styled(Container)(({ theme }) => ({
 //
 const SeeAllIcon = styled(ChevronRight)({
   marginBottom: 2,
-});
+})
 
-export const Section = ({
-  label = 'no section name',
-  children,
-  href,
-}: SectionProps) => {
-  const upperLabel = label.toUpperCase();
+export const Section = ({ label = 'no section name', children, href }: SectionProps) => {
+  const upperLabel = label.toUpperCase()
 
   return (
     <Box>
@@ -60,9 +58,7 @@ export const Section = ({
           </Button>
         )}
       </SectionTopBar>
-      <SectionWrapper>
-        {children}
-      </SectionWrapper>
+      <SectionWrapper>{children}</SectionWrapper>
     </Box>
-  );
-};
+  )
+}

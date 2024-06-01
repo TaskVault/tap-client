@@ -24,6 +24,14 @@
     "allowUnusedLabels": false,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
-  }
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "downlevelIteration": true
+  },
+  "exclude": [
+    "**/dist",
+    "**/*.test.ts",
+    "**/*.spec.ts",
+  ]
 }

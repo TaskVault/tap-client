@@ -1,12 +1,14 @@
 {
   "name": "client",
   "description": "NextJS WEB UI for Ton Ads platform",
+  "type": "module",
   "private": true,
   "sideEffects": false,
   "scripts": {
     "build": "remix vite:build",
     "dev": "remix vite:dev",
     "start": "remix-serve ./build/server/index.js",
+    "prettify": "prettier --write \"**/*.{ts,tsx,json,md}\"",
     "lint": "eslint"
   },
   "dependencies": {
@@ -14,7 +16,6 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.19",
     "@mui/material": "^5.15.19",
-    "@mui/styles": "^5.15.19",
     "@remix-run/node": "2.8.0",
     "@remix-run/react": "2.8.0",
     "@remix-run/serve": "2.8.0",

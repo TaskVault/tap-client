@@ -1,8 +1,7 @@
 {
-  "name": "tonads",
-  "description": "NextJS WEB UI for Ton Ads platform",
+  "name": "tap",
+  "description": "The Ad Platform",
   "keywords": [
-    "Ton Ads",
     "blockchain",
     "e-commerce"
   ],
@@ -13,11 +12,13 @@
     "type": "git"
   },
   "scripts": {
-    "build": "nx run-many -t build",
+    "start": "nx run-many --parallel --maxParallel=50 -t start",
     "dev": "nx run-many --parallel --maxParallel=50 -t dev",
+    "build": "nx run-many -t build",
     "clean": "nx run-many -t clean",
     "lint:fix": "nx run-many -t lint:fix",
-    "prettify:fix": "nx run-many -t prettify:fix"
+    "prettify": "nx run-many -t prettify",
+    "test": "nx run-many -t test"
   },
   "packageManager": "pnpm@9.1.4",
   "engines": {

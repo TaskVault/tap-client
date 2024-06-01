@@ -1,36 +1,33 @@
-import React from 'react';
-import { Box, Typography, styled } from '@mui/material';
-import { Architecture, AcUnit } from '@mui/icons-material';
+import React from 'react'
+import { Box, Typography, styled } from '@mui/material'
+import { Architecture, AcUnit } from '@mui/icons-material'
 
 type WithAmount<T = {}> = T & {
-  amount?: number;
-};
+  amount?: number
+}
 
-type BalanceProps = React.PropsWithChildren<WithAmount<{
-  icon: React.ReactNode;
-  textColor?: string;
-}>>;
+type BalanceProps = React.PropsWithChildren<
+  WithAmount<{
+    icon: React.ReactNode
+    textColor?: string
+  }>
+>
 
 const BalanceContainer = styled(Box)({
   textAlign: 'center',
-});
+})
 
 const BalanceRow = styled(Box)({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-});
+})
 
 const BalanceAmount = styled(Typography)(({ theme }) => ({
   fontWeight: theme.typography.fontWeightBold,
-}));
+}))
 
-export const Balance = ({
-  children,
-  amount = 0,
-  textColor,
-  icon,
-}: BalanceProps) => {
+export const Balance = ({ children, amount = 0, textColor, icon }: BalanceProps) => {
   return (
     <BalanceContainer>
       <BalanceRow>
@@ -41,21 +38,21 @@ export const Balance = ({
         {amount}
       </BalanceAmount>
     </BalanceContainer>
-  );
-};
+  )
+}
 
 export const TonBalance = ({ amount }: Required<WithAmount>) => {
   return (
     <Balance amount={amount} icon={<Architecture />}>
-      <Typography color='textSecondary'>Ton Balance</Typography>
+      <Typography color="textSecondary">Ton Balance</Typography>
     </Balance>
-  );
-};
+  )
+}
 
 export const TonInDeals = ({ amount }: Required<WithAmount>) => {
   return (
     <Balance amount={amount} textColor="primary" icon={<AcUnit />}>
-      <Typography color='textSecondary'>Ton In Deals</Typography>
+      <Typography color="textSecondary">Ton In Deals</Typography>
     </Balance>
-  );
-};
+  )
+}
