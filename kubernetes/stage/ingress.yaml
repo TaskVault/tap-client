@@ -1,19 +1,42 @@
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: &name tap-client
+# spec:
+#   tls:
+#   - hosts:
+#     - &url best.ta-platform.net
+#   rules:
+#   - host: *url
+#     http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: *name
+#             port:
+#               number: 80
+# ---
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: tap-client-cert
+spec:
+  domains:
+    - best.ta-platform.net
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: &name tap-client
+  name: managed-cert-tap-client
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: tap-client-ip
+    networking.gke.io/managed-certificates: tap-client-cert
 spec:
-  tls:
-  - hosts:
-    - &url ta-platform.net
-  rules:
-  - host: *url
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: *name
-            port:
-              number: 80
+  ingressClassName: gce
+  defaultBackend:
+    service:
+      name: tap-client
+      port:
+        number: 80

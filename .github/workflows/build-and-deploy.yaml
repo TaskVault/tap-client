@@ -14,6 +14,7 @@ jobs:
       REPOSITORY: ${{ secrets.REPOSITORY_NAME }}
       ARTIFACT_REGISTRY_REGION: europe-west1
       CLUSTER_REGION: europe-west1
+      COMMIT_SHA: ${{ github.sha }}
 
     steps:
     - name: Checkout
@@ -39,8 +40,8 @@ jobs:
     - name: Build and Push Docker Image to Artifact Registry
       run: |
         gcloud auth configure-docker $ARTIFACT_REGISTRY_REGION-docker.pkg.dev
-        docker build -t $ARTIFACT_REGISTRY_REGION-docker.pkg.dev/$GOOGLE_PROJECT/$REPOSITORY/$IMAGE:latest .
-        docker push $ARTIFACT_REGISTRY_REGION-docker.pkg.dev/$GOOGLE_PROJECT/$REPOSITORY/$IMAGE:latest
+        docker build -t $ARTIFACT_REGISTRY_REGION-docker.pkg.dev/$GOOGLE_PROJECT/$REPOSITORY/$IMAGE:$COMMIT_SHA .
+        docker push $ARTIFACT_REGISTRY_REGION-docker.pkg.dev/$GOOGLE_PROJECT/$REPOSITORY/$IMAGE:$COMMIT_SHA
 
   deploy:
     runs-on: ubuntu-latest
@@ -53,6 +54,7 @@ jobs:
       APP_NAME: tap-client
       ARTIFACT_REGISTRY_REGION: europe-west1
       CLUSTER_REGION: europe-west1
+      $COMMIT_SHA: ${{ github.sha }}
 
     steps:
     - name: Checkout
@@ -80,7 +82,7 @@ jobs:
         sed -i "s/\$PROJECT/$GOOGLE_PROJECT/g" kubernetes/stage/deployment.yaml
         sed -i "s/\$REPO/$REPOSITORY/g" kubernetes/stage/deployment.yaml
         sed -i "s/\$IMAGE/$IMAGE/g" kubernetes/stage/deployment.yaml
-        sed -i "s/\$VERSION/latest/g" kubernetes/stage/deployment.yaml
+        sed -i "s/\$VERSION/$COMMIT_SHA/g" kubernetes/stage/deployment.yaml
         kubectl apply -f kubernetes/stage
 
     - name: Test API Deployment status
