@@ -1,31 +1,53 @@
-Ton Ads
----
+# TAP Client
 
 ## Installation
+
 ### NVM
+
 Install nvm.
-```sh 
+
+```sh
 nvm use
 ```
 
 ### PNPM
+
 Install corepack.
+
 ```sh
 corepack enable
 corepack prepare pnpm@latest --activate
 ```
 
-### Installation
+### Install dependencies
+
 ```sh
 pnpm install
 ```
+
 ---
 
 You are ready to go.
 
+## Local runnning
+
+During development, you can run it like this:
+
+```sh
+pnpm run dev
+```
+
+Or you can run production build:
+
+```sh
+docker-compose up       # start-up services
+docker-compose build    # build the image
+docker-compose down     # stop services
+```
 
 ## Testing
-```sh 
+
+```sh
 pnpm test
 ```
 

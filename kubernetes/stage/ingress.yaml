@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: &name tap-client
+spec:
+  tls:
+  - hosts:
+    - &url ta-platform.net
+  rules:
+  - host: *url
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: *name
+            port:
+              number: 80

@@ -1,0 +1,8 @@
+services:
+  worker:
+    build:
+      dockerfile: Dockerfile
+      target: client
+    ports:
+      - 3000:3000
+

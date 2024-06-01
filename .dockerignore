@@ -1,0 +1,10 @@
+.git*
+*.md
+docker
+kubernetes
+.yarnrc*
+.nvmrc
+.prettierrc
+node_modules
+dist
+Dockerfile

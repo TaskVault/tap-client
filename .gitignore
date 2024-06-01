@@ -37,3 +37,5 @@ apps/*/.nx
 apps/*/node_modules
 .nx
 
+secrets*
+scripts*
