@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: &name tap-client
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: *name
   ports:
